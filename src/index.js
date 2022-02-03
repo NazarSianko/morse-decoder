@@ -38,7 +38,27 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
+   let morse = ['1011','11101010','11101110','111010','10','10101110','111110','10101010','1010','10111111','111011','10111010','1111','1110','111111','10111110','11111011','101110','101010','11','101011','10101011','101111','11101011','11101111','11111010','**********',
+        '1011111111','1010111111','1010101111','1010101011','1010101010','1110101010','1111101010','1111111010', '1111111110','1111111111'];
+        let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','1','2','3','4','5','6','7','8','9','0'];
+    
+    let arr = expr.split('');
+    let firstArr = [];
+    let secondArr = [];
+    while (arr.length) {
+        firstArr.push(arr.splice(0,10).join(''));
+    }
+    for (let i = 0 ; i< firstArr.length; i++) {
+        if (firstArr[i] !== "**********") {
+            firstArr[i] = Number(firstArr[i]).toString();
+        }
+           
+            secondArr.push(morse.indexOf(firstArr[i]));
+            
+            secondArr[i] = alphabet[secondArr[i]];
+    }
+    return secondArr.join('');
+
 }
 
 module.exports = {
